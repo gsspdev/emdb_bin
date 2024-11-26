@@ -2,4 +2,4 @@ This is a test of emdb_bin. It should make adjustments to the text. One such adj
 
 Here's something to check. Does this end with two question marks?
 
-Now that we've tested that example. How's this last paragraph?
+Now that we've tested that example. How's this last paragraph? Did it work?

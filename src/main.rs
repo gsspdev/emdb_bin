@@ -1,18 +1,21 @@
 use std::fs;
-use regex::Regex;
+use emdb_lib::word_endings_freq::final_ly_ily_to_l;
+use emdb_lib::punctuation::substitute_punctuation;
 
 fn main() -> std::io::Result<()> {
-    // Read the content of 'input.txt' into a String
+    let _ = fs::remove_file("output.txt");
+    
     let content = fs::read_to_string("input.txt")?;
+    
+    let result = substitute_punctuation(&content);
 
-    // Define the regex pattern to match punctuation at the end of paragraphs
-    let re = Regex::new(r"([.!?])\s*(\n\s*\n|\n*\z)").unwrap();
+    println!("{}", result);
 
-    // Perform the substitution to double the punctuation marks
-    let result = re.replace_all(&content, "$1$1$2");
-
-    // Write the modified content to 'output.txt'
-    fs::write("output.txt", result.as_ref())?;
+    fs::write("output.txt", result);
+    println!("");
+    println!("contents written to output.txt");
+    let greaty = final_ly_ily_to_l("greatly");
+    println!("{}", greaty);
 
     Ok(())
 }
